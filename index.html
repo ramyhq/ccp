@@ -815,7 +815,7 @@ const BRANDS = [
   {
     "name": "OST ERP",
     "video": "",
-    "thumb": "",
+    "thumb": "img/ost.png",
     "where": "UAE",
     "desc": "Custom ERP system",
     "type": "Tutorial production",
@@ -1179,10 +1179,10 @@ document.querySelector(".tabs").addEventListener("click", e=>{
 /* ----------------- Secret Door (Studio unlock) ----------------- */
 (function(){
   const SECRET = "12345678";
-  const LS_KEY = "rw_studio_unlocked";
+  let unlocked = false;
 
-  function isUnlocked(){ try{ return localStorage.getItem(LS_KEY)==="1"; }catch(e){ return false; } }
-  function setUnlocked(){ try{ localStorage.setItem(LS_KEY,"1"); }catch(e){} }
+  function isUnlocked(){ return unlocked; }
+  function setUnlocked(){ unlocked = true; }
 
   function showStudioTab(){
     const tabs = document.querySelector(".tabs");
@@ -1209,7 +1209,7 @@ document.querySelector(".tabs").addEventListener("click", e=>{
   }
 
   function lockStudio(){
-    try{ localStorage.removeItem(LS_KEY); }catch(e){}
+    unlocked = false;
     hideStudioTab();
     toast("🔒 Studio locked");
   }
@@ -1266,8 +1266,7 @@ document.querySelector(".tabs").addEventListener("click", e=>{
     if(e.key==="Escape") closePwModal();
   });
 
-  /* restore Studio tab on load if previously unlocked */
-  if(isUnlocked()) showStudioTab();
+  /* Studio always starts locked — unlock via 🚪 */
 })();
 
 /* ============================================================
