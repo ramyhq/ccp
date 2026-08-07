@@ -1,0 +1,5 @@
+*.psd
+*.zip
+index*x.html
+old code/
+.DS_Store
