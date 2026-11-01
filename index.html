@@ -1784,7 +1784,7 @@
       }
     </style>
   </head>
-  <body>
+  <body style="">
     <header class="nav">
       <div class="wrap nav-inner">
         <div class="brand">
@@ -1792,7 +1792,8 @@
           <span>RAMY WAHID <small>Content Creator</small></span>
         </div>
         <nav class="tabs" role="tablist">
-          <button class="active" data-tab="portfolio">Portfolio</button>
+          <button class="" data-tab="portfolio">Portfolio</button>
+          <button data-tab="studio" class="active">Studio</button>
         </nav>
         <div class="nav-cta">
           <a
@@ -1846,7 +1847,7 @@
     </header>
 
     <main class="wrap">
-      <div class="page active" id="page-portfolio">
+      <div class="page" id="page-portfolio">
         <section class="hero" id="top">
           <div class="hero-grid">
             <div class="hero-photo">
@@ -1906,7 +1907,7 @@
                 ></a>
                 <a
                   class="btn btn-ghost"
-                  href="https://drive.usercontent.google.com/download?id=1T4OTcSW7KHFIFiN5Hg8Y7BhtUQydquYy&export=download&authuser=0"
+                  href="https://drive.usercontent.google.com/download?id=1T4OTcSW7KHFIFiN5Hg8Y7BhtUQydquYy&amp;export=download&amp;authuser=0"
                   target="_blank"
                   rel="noopener"
                   >Download CV
@@ -1929,11 +1930,11 @@
                   <div class="l">Years experience</div>
                 </div>
                 <div class="stat">
-                  <div class="n accent" id="followers-total">106K+</div>
+                  <div class="n accent" id="followers-total">112K+</div>
                   <div class="l">Followers built</div>
                 </div>
                 <div class="stat">
-                  <div class="n accent" id="brands-count">13+</div>
+                  <div class="n accent" id="brands-count">14+</div>
                   <div class="l">Brand collabs</div>
                 </div>
               </div>
@@ -1991,7 +1992,7 @@
                 with <strong>6+ years</strong> of hands-on experience building,
                 growing, and managing multi-platform social media channels
                 reaching
-                <strong id="followers-about">106K+ followers</strong> across
+                <strong id="followers-about">112K+ followers</strong> across
                 <strong>YouTube</strong>, <strong>TikTok</strong>,
                 <strong>Facebook</strong>, and <strong>Instagram</strong>.
                 Strong foundation in <strong>content ideation</strong>,
@@ -2002,7 +2003,7 @@
                 <strong>concept</strong> and <strong>scripting</strong> to
                 <strong>filming</strong>, <strong>editing</strong>, and
                 <strong>publishing</strong> — and I've partnered with
-                <strong id="brands-about">13+</strong> tech, SaaS, and software
+                <strong id="brands-about">14+</strong> tech, SaaS, and software
                 brands on sponsored content that delivers measurable results.
               </p>
               <p style="margin-top: 12px">
@@ -2217,7 +2218,7 @@
       </div>
 
       <!-- ============ STUDIO ============ -->
-      <div class="page" id="page-studio">
+      <div class="page active" id="page-studio">
         <section class="block">
           <div class="block-head">
             <h2 class="block-title" style="font-size: clamp(28px, 5vw, 40px)">
@@ -2230,8 +2231,10 @@
           <div class="studio-grid">
             <div class="editor sticky">
               <div class="form-head">
-                <h3 id="form-title">New achievements / projects</h3>
-                <span class="mode-badge mode-new" id="mode-badge">Adding</span>
+                <h3 id="form-title">Edit Follower Counts</h3>
+                <span class="mode-badge mode-edit" id="mode-badge"
+                  >Editing</span
+                >
               </div>
               <div id="form-fields"></div>
               <div class="form-actions">
@@ -2275,14 +2278,14 @@
                   style="
                     color: var(--muted-2);
                     font-size: 13.5px;
-                    display: block;
+                    display: none;
                   "
                 ></div>
               </div>
 
               <div style="margin-top: 20px">
                 <div class="pv-label">
-                  Current cards · <span id="list-count">5</span>
+                  Current cards · <span id="list-count">1</span>
                 </div>
                 <div class="item-list" id="item-list"></div>
               </div>
@@ -2371,7 +2374,7 @@
             text-decoration: none;
             opacity: 0.35;
             transition: opacity 0.4s;
-            cursor: default;
+            cursor: pointer;
             display: inline-block;
             vertical-align: middle;
           "
@@ -2431,7 +2434,7 @@
       </div>
     </div>
 
-    <div class="toast" id="toast">Add a title, description or image</div>
+    <div class="toast" id="toast">Preview ready</div>
 
     <script>
       /* ============================================================
@@ -2477,10 +2480,10 @@
       /* === FOLLOWERS_START === */
       const FOLLOWERS = [
         {
-          youtube: 7400,
-          tiktok: 94000,
-          instagram: 4855,
-          facebook: 187,
+          youtube: 7554,
+          tiktok: 99700,
+          instagram: 4967,
+          facebook: 255,
         },
       ];
       /* === FOLLOWERS_END === */
@@ -4429,6 +4432,58 @@
           "Open campaign"
         );
       }
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
     </script>
   </body>
 </html>
