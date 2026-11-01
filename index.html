@@ -727,11 +727,28 @@
         object-fit: cover;
         transition: transform 0.5s, filter 0.3s;
       }
+      .brand-thumb.img-miss::before {
+        content: attr(data-fallback);
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+        color: var(--text);
+        font-family: "Space Grotesk";
+        font-size: clamp(16px, 3vw, 24px);
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+      }
       .brand-card:hover .brand-thumb img {
         transform: scale(1.06);
       }
       .brand-thumb .play {
         position: absolute;
+        z-index: 2;
         inset: 0;
         display: grid;
         place-items: center;
@@ -2603,9 +2620,9 @@ const ALL_WORK = [
       /* returns a thumbnail URL we can set synchronously (YouTube / custom / direct image), or "" if we must fetch (TikTok) */
       function syncThumb(videoUrl, customThumb) {
         if (!videoUrl && !customThumb) return "";
+        if (customThumb) return customThumb;
         const yt = ytThumb(videoUrl);
         if (yt) return yt;
-        if (customThumb) return customThumb;
         if (looksLikeImg(videoUrl)) return videoUrl;
         return "";
       }
@@ -2718,7 +2735,7 @@ const ALL_WORK = [
             ? playHTML
             : `<div class="no-video">Video pending</div>`;
           const c = el(`<div class="brand-card ${hasVideo ? "" : "no-vid"}">
-      <div class="brand-thumb" id="bt-${i}">
+      <div class="brand-thumb" id="bt-${i}" data-fallback="${escAttr(b.name || "Brand")}">
         ${thumbBlock}
       </div>
       <div class="info">
@@ -2738,6 +2755,14 @@ const ALL_WORK = [
       </div>
     </div>`);
           host.appendChild(c);
+          const thumb = c.querySelector(".brand-thumb");
+          const thumbImg = thumb && thumb.querySelector("img");
+          if (thumbImg) {
+            thumbImg.addEventListener("error", () => {
+              thumbImg.remove();
+              thumb.classList.add("img-miss");
+            }, { once: true });
+          }
           if (hasVideo) {
             const open = () => window.open(enc(v), "_blank", "noopener");
             document.getElementById("bt-" + i).addEventListener("click", open);
